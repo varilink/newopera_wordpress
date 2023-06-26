@@ -61,8 +61,8 @@
             RUN-NONINTERACTIVE      ; Interactive, non-interactive
             headerImage             ; Input image
             headerDrawable          ; Drawable to save
-            "dest/header-logo.webp" ; The name of the file to save the image to
-            "dest/header-logo.webp" ; The name entered
+            "dist/header-logo.webp" ; The name of the file to save the image to
+            "dist/header-logo.webp" ; The name entered
             0                       ; preset
             0                       ; Use lossless encoding
             90                      ; Quality of the image
@@ -98,8 +98,8 @@
             RUN-NONINTERACTIVE      ; Interactive, non-interactive
             footerImage             ; Input image
             footerDrawable          ; Drawable to save
-            "dest/footer-logo.webp" ; The name of the file to save the image to
-            "dest/footer-logo.webp" ; The name entered
+            "dist/footer-logo.webp" ; The name of the file to save the image to
+            "dist/footer-logo.webp" ; The name entered
             0                       ; preset
             0                       ; Use lossless encoding
             90                      ; Quality of the image
@@ -137,8 +137,8 @@
         RUN-NONINTERACTIVE ; Interactive, non-interactive
         bannerImage        ; Input image
         bannerDrawable     ; Drawable to save
-        "dest/banner.webp" ; The name of the file to save the image to
-        "dest/banner.webp" ; The name entered
+        "dist/banner.webp" ; The name of the file to save the image to
+        "dist/banner.webp" ; The name entered
         0                  ; preset
         0                  ; Use lossless encoding
         90                 ; Quality of the image

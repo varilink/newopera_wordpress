@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.2/theme.json",
+	"styles": {
+		"spacing": {
+			"padding": {
+				"bottom": "var(--wp--preset--spacing--40)",
+				"left": "var(--wp--preset--spacing--30)",
+				"right": "var(--wp--preset--spacing--30)",
+				"top": "var(--wp--preset--spacing--40)"
+			}
+		}
+	},
+	"version": 2
+}

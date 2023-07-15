@@ -8,7 +8,7 @@ set -e
 # Update the permalink structure
 # ------------------------------
 
-wp rewrite structure '/%postname%'
+wp rewrite structure '/%postname%/'
 wp rewrite flush
 
 # ------------------------------------------------

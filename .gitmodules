@@ -1,0 +1,3 @@
+[submodule "varilink-scripts"]
+	path = varilink-scripts
+	url = git@github.com:varilink/libraries_wp-cli-scripts.git

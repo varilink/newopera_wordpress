@@ -1,3 +1,9 @@
 [submodule "varilink-scripts"]
 	path = varilink-scripts
 	url = git@github.com:varilink/libraries_wp-cli-scripts.git
+[submodule "plugin/past-production/src/components"]
+	path = plugin/past-production/src/components
+	url = git@github.com:varilink/libraries_react.git
+[submodule "plugin/upcoming-production/src/components"]
+	path = plugin/upcoming-production/src/components
+	url = git@github.com:varilink/libraries_react.git

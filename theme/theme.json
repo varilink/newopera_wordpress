@@ -1,14 +1,60 @@
 {
-	"$schema": "https://schemas.wp.org/wp/6.2/theme.json",
-	"styles": {
-		"spacing": {
-			"padding": {
-				"bottom": "0px",
-				"left": "var(--wp--preset--spacing--30)",
-				"right": "var(--wp--preset--spacing--30)",
-				"top": "var(--wp--preset--spacing--40)"
-			}
-		}
-	},
-	"version": 2
+    "$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+    "customTemplates": [
+        {
+            "name": "archive-past-production",
+            "title": "Past Productions"
+        }
+    ],
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "color": "#154360",
+                    "name": "Dark Blue",
+                    "slug": "dark-blue"
+                }
+            ]
+        },
+        "custom": {
+            "footer a": {
+                "hover": {
+                    "textDecoration": "underline"
+                },
+                "textDecoration": "none"
+            }
+        },
+        "layout": {
+            "contentSize": "800px",
+            "wideSize": "1200px"
+        },
+        "spacing": {
+            "blockGap": true
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+                    "name": "Primary",
+                    "slug": "primary"
+                }
+            ]
+        }
+    },
+    "styles": {
+        "css": ".double-height {\n    min-height: 2.8em;\n}\n\nfigure.align-top a img {\n    vertical-align: top !important;\n}\n\n\n\n"
+    },
+    "templateParts": [
+        {
+            "area": "header",
+            "name": "header",
+            "title": "Header"
+        },
+        {
+            "area": "footer",
+            "name": "footer",
+            "title": "Footer"
+        }
+    ],
+    "version": 3
 }

@@ -4,25 +4,65 @@
 
 set -e
 
-# ------------------------------
-# Update the permalink structure
-# ------------------------------
+# -------------------------
+# Blog name and description
+# -------------------------
+
+wp option set blogname 'New Opera Company'
+
+wp option set blogdescription                                                  \
+'New Opera Company, Derby was founded in 1957 to sing grand opera.'
+
+# -------
+# Plugins
+# -------
+
+# Installed and activated in all environments
+wp plugin install --activate 3d-flipbook-dflip-lite --version=2.2.56
+wp plugin install --activate contact-form-7 --version=5.9.8
+wp plugin install --activate filebird --version=6.3.2
+wp plugin install --activate nextgen-gallery --version=3.59.4
+
+# Installed in all environments, not activated in all environments
+wp plugin install restricted-site-access --version=7.5.1
+wp plugin install wp-mail-smtp --version=4.1.1
+
+# Activate site plugin(s)
+wp plugin activate newopera-productions
+
+# Delete redundant plugins
+wp plugin is-installed akismet
+if [ $? -eq 0 ]; then wp plugin delete akismet; fi
+wp plugin is-installed hello
+if [ $? -eq 0 ]; then wp plugin delete hello; fi
+
+# ------
+# Themes
+# ------
+
+# Install and activate parent theme
+wp theme install twentytwentythree --version=1.6 --activate
+
+# Activate child theme
+wp theme activate newopera-site
+
+# Delete redundant themes
+wp theme delete twentytwentyone
+wp theme delete twentytwentytwo
+wp theme delete twentytwentyfour
+
+# -------------------
+# Permalink structure
+# -------------------
 
 wp rewrite structure '/%postname%/'
 wp rewrite flush
 
-# ------------------------------------------------
-# Install and activate external plugins and themes
-# ------------------------------------------------
+# -------------------------------
+# Skeleton pages (if no existing)
+# -------------------------------
 
-wp plugin install --activate contact-form-7 --version=5.7.7
-wp theme install twentytwentythree --version=1.1
-
-# ---------------------------------------------------
-# Create skeleton content if it doesn't already exist
-# ---------------------------------------------------
-
-# "New Opera Company" page
+# "New Opera Company" (Home) page
 if [[ !                                                                        \
   $(wp post list --post_type=page --name=new-opera-company --format=ids)       \
 ]]; then
@@ -33,6 +73,22 @@ fi
 wp option set show_on_front page
 wp option set page_on_front                                                    \
   $(wp post list --post_type=page --name=new-opera-company --format=ids)
+
+# "Past Productions" page
+if [[ !                                                                        \
+  $(wp post list --post_type=page --name=past-productions --format=ids)        \
+]]; then
+  wp post create --post_type=page --post_name=past-productions                 \
+    --post_title="Past Productions" --post_status=publish
+fi
+
+# "Gallery" page
+if [[ !                                                                        \
+  $(wp post list --post_type=page --name=gallery --format=ids)                 \
+]]; then
+  wp post create --post_type=page --post_name=gallery                          \
+    --post_title="Gallery" --post_status=publish
+fi
 
 # "Contact Us" page
 if [[ !                                                                        \
@@ -47,21 +103,18 @@ if [[ ! $(wp menu list --format=ids) ]]; then
   wp menu create "Main Menu"
   wp menu item add-post main-menu                                              \
     $(wp post list --post_type=page --name=new-opera-company --format=ids)     \
-    --attr-title=Home
+    --title=Home
+  wp menu item add-post main-menu                                              \
+    $(wp post list --post_type=page --name=past-productions --format=ids)
+  wp menu item add-post main-menu                                              \
+    $(wp post list --post_type=page --name=gallery --format=ids)
   wp menu item add-post main-menu                                              \
     $(wp post list --post_type=page --name=contact-us --format=ids)
 fi
 
-# -----------------------------------
-# Activate the site plugins and theme
-# -----------------------------------
-
-wp plugin activate newopera-productions
-wp theme activate newopera-site
-
-# ----------------------------------------------
-# Upload the theme's images to the media library
-# ----------------------------------------------
+# ----------
+# The images
+# ----------
 
 wp option update uploads_use_yearmonth_folders 0
 
@@ -94,18 +147,16 @@ done
 
 wp option update uploads_use_yearmonth_folders 1
 
-# -------------------------------------
-# Disable comments and pings by default
-# -------------------------------------
+# --------------------------
+# Disable comments and pings
+# --------------------------
 
+# By default
 wp option update default_pingback_flag ""
 wp option update default_ping_status ""
 wp option update default_comment_status ""
 
-# ------------------------------------------------------
-# Disable comments and pings on existing posts and pages
-# ------------------------------------------------------
-
+# On existing posts and pages
 wp post list --format=ids                                                      \
   | xargs --no-run-if-empty wp post update --comment_status=closed
 wp post list --format=ids                                                      \

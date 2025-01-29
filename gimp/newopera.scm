@@ -58,24 +58,24 @@
 
         (gimp-image-scale headerImage 480 185)
         (file-webp-save
-            RUN-NONINTERACTIVE      ; Interactive, non-interactive
-            headerImage             ; Input image
-            headerDrawable          ; Drawable to save
-            "dist/header-logo.webp" ; The name of the file to save the image to
-            "dist/header-logo.webp" ; The name entered
-            0                       ; preset
-            0                       ; Use lossless encoding
-            90                      ; Quality of the image
-            100                     ; Quality of the image's alpha channel
-            0                       ; Use layers for animation
-            0                       ; Loop animation infinitely
-            0                       ; Minimize animation size
-            0                       ; Maximum distance between key-frames
-            0                       ; Toggle saving exif data
-            0                       ; Toggle saving iptc data
-            0                       ; Toggle saving xmp data
-            0                       ; Delay
-            0                       ; Force delay on all frames
+            RUN-NONINTERACTIVE        ; Interactive, non-interactive
+            headerImage               ; Input image
+            headerDrawable            ; Drawable to save
+            "/media/header-logo.webp" ; Name of file to save image to
+            "/media/header-logo.webp" ; Name entered
+            0                         ; Preset
+            0                         ; Use lossless encoding
+            90                        ; Quality of the image
+            100                       ; Quality of the image's alpha channel
+            0                         ; Use layers for animation
+            0                         ; Loop animation infinitely
+            0                         ; Minimize animation size
+            0                         ; Maximum distance between key-frames
+            0                         ; Toggle saving exif data
+            0                         ; Toggle saving iptc data
+            0                         ; Toggle saving xmp data
+            0                         ; Delay
+            0                         ; Force delay on all frames
         )
 
         (gimp-image-delete headerImage)
@@ -95,24 +95,24 @@
         (gimp-drawable-invert footerDrawable TRUE)
         (gimp-image-scale footerImage 480 185)
         (file-webp-save
-            RUN-NONINTERACTIVE      ; Interactive, non-interactive
-            footerImage             ; Input image
-            footerDrawable          ; Drawable to save
-            "dist/footer-logo.webp" ; The name of the file to save the image to
-            "dist/footer-logo.webp" ; The name entered
-            0                       ; preset
-            0                       ; Use lossless encoding
-            90                      ; Quality of the image
-            100                     ; Quality of the image's alpha channel
-            0                       ; Use layers for animation
-            0                       ; Loop animation infinitely
-            0                       ; Minimize animation size
-            0                       ; Maximum distance between key-frames
-            0                       ; Toggle saving exif data
-            0                       ; Toggle saving iptc data
-            0                       ; Toggle saving xmp data
-            0                       ; Delay
-            0                       ; Force delay on all frames
+            RUN-NONINTERACTIVE        ; Interactive, non-interactive
+            footerImage               ; Input image
+            footerDrawable            ; Drawable to save
+            "/media/footer-logo.webp" ; Name of file to save image to
+            "/media/footer-logo.webp" ; Name entered
+            0                         ; Preset
+            0                         ; Use lossless encoding
+            90                        ; Quality of the image
+            100                       ; Quality of the image's alpha channel
+            0                         ; Use layers for animation
+            0                         ; Loop animation infinitely
+            0                         ; Minimize animation size
+            0                         ; Maximum distance between key-frames
+            0                         ; Toggle saving exif data
+            0                         ; Toggle saving iptc data
+            0                         ; Toggle saving xmp data
+            0                         ; Delay
+            0                         ; Force delay on all frames
         )
 
         (gimp-image-delete footerImage)
@@ -134,24 +134,24 @@
     )
 
     (file-webp-save
-        RUN-NONINTERACTIVE ; Interactive, non-interactive
-        bannerImage        ; Input image
-        bannerDrawable     ; Drawable to save
-        "dist/banner.webp" ; The name of the file to save the image to
-        "dist/banner.webp" ; The name entered
-        0                  ; preset
-        0                  ; Use lossless encoding
-        90                 ; Quality of the image
-        100                ; Quality of the image's alpha channel
-        0                  ; Use layers for animation
-        0                  ; Loop animation infinitely
-        0                  ; Minimize animation size
-        0                  ; Maximum distance between key-frames
-        0                  ; Toggle saving exif data
-        0                  ; Toggle saving iptc data
-        0                  ; Toggle saving xmp data
-        0                  ; Delay
-        0                  ; Force delay on all frames
+        RUN-NONINTERACTIVE   ; Interactive, non-interactive
+        bannerImage          ; Input image
+        bannerDrawable       ; Drawable to save
+        "/media/banner.webp" ; Name of file to save image to
+        "/media/banner.webp" ; Name entered
+        0                    ; Preset
+        0                    ; Use lossless encoding
+        90                   ; Quality of the image
+        100                  ; Quality of the image's alpha channel
+        0                    ; Use layers for animation
+        0                    ; Loop animation infinitely
+        0                    ; Minimize animation size
+        0                    ; Maximum distance between key-frames
+        0                    ; Toggle saving exif data
+        0                    ; Toggle saving iptc data
+        0                    ; Toggle saving xmp data
+        0                    ; Delay
+        0                    ; Force delay on all frames
     )
 
     (gimp-image-delete bannerImage)
